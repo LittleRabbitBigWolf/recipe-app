@@ -10,7 +10,7 @@ const port = process.env.PORT || 3001;
 const app = express();
 const path = require('path');
 
-const { strat, logout } = require(`${__dirname}/controllers/authCtrl`);
+const { strat, logout, getUser } = require(`${__dirname}/controllers/authCtrl`);
 
 massive(process.env.CONNECTION_STRING)
   .then(db => app.set('db', db))
@@ -36,6 +36,7 @@ app.use(passport.session());
 passport.use(strat);
 
 passport.serializeUser((user, done) => {
+  console.log('user: ', user);
   const db = app.get('db');
   db
     .userInfo.getUserByAuthid([user.id])
