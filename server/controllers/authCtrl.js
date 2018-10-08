@@ -15,6 +15,18 @@ const strat = new Auth0Strategy (
   }
 );
 
+const getUser = (req, res, next) => {
+  // console.log('thtj',req.user);
+  req.app
+    .get('db')
+    .userInfo.getUserByAuthid(req.user.authid)
+    .then(response => {
+      // console.log('response',response);
+      res.status(200).json(response);
+    })
+    .catch(err => console.log(err));
+};
+
 const logout = (req, res, next) => {
   req.session.destroy(() => {
     res.redirect('http://localhost:3000/#/');
@@ -24,5 +36,6 @@ const logout = (req, res, next) => {
 
 module.exports = {
   strat,
+  getUser,
   logout
 };
