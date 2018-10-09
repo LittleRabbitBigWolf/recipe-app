@@ -7,6 +7,9 @@ import routes from './routes';
 
 import './App.css';
 
+import Login from './components/Login/Login';
+import Logout from './components/Logout/Logout';
+
 class App extends Component {
   render() {
     return (
@@ -14,6 +17,8 @@ class App extends Component {
       <HashRouter>
       <div className="App">
       {routes}
+          <Login/>
+          <Logout/>
       </div>
       </HashRouter>
       // </Provider>

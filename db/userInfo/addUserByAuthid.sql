@@ -1,2 +1,3 @@
-INSERT INTO users (username, auth_id) 
-VALUES ($1, $2);
+INSERT INTO users (username, auth_id, avatar) 
+VALUES ($1, $2, $3)
+RETURNING *;
