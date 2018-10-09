@@ -22,7 +22,7 @@ const getUser = (req, res, next) => {
     .userInfo.getUserByAuthid(req.user.authid)
     .then(response => {
       // console.log('response',response);
-      res.status(200).json(response);
+      res.status(200).json(response[0]);
     })
     .catch(err => console.log(err));
 };
