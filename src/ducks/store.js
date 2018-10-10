@@ -1,13 +1,15 @@
-// import {createStore, applyMiddleware, combineReducer,compose} from 'redux';
-// import promiseMiddleware from 'redux-promise-middleware';
+import {createStore, applyMiddleware, combineReducers, compose} from 'redux';
+import promiseMiddleware from 'redux-promise-middleware';
 
-// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-// const enhancer = composeEnhancers(applyMiddleware(promiseMiddleware()));
+import userReducer from "./userReducer";
 
-// const combinedReducer = combineReducer({
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const enhancer = composeEnhancers(applyMiddleware(promiseMiddleware()));
 
-// });
+const combinedReducer = combineReducers({
+  user: userReducer
+});
 
-// const store = createStore(combinedReducer, enhancer)
+const store = createStore(combinedReducer, enhancer)
 
-// export default store;
+export default store;
