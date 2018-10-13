@@ -6,7 +6,7 @@ import store from './ducks/store';
 import routes from './routes';
 import Nav from './components/Nav/Nav';
 
-import './App.css';
+import './scss/App.scss';
 
 class App extends Component {
   render() {
